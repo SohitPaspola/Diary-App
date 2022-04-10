@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
 import './App.css';
+import List from './components/Display/List';
+import Filter from './components/Filter/Filter';
+import Header from './components/Header/Header';
+import { DiaryContext } from './components/HOOK/MyContext';
+import Input from './components/Input/Input';
 
 function App() {
+
+  const { showModal, showFilterModal,filterInputData } = useContext(DiaryContext);
+  console.log(filterInputData);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header></Header>
+      {showModal && <Input></Input>}
+      {showFilterModal && <Filter></Filter>}
+      <List></List>
     </div>
   );
 }

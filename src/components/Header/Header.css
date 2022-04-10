@@ -1,0 +1,18 @@
+.header-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    background-color: #3aa39f;
+}
+
+.header-cont-btn{
+    margin: auto 0;
+}
+.header-cont-btn button{
+    color: white;
+    border: 1px solid white;
+}
+
+
+
+  
