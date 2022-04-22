@@ -16,7 +16,7 @@ const List = () => {
     showFilterModal,
     renderFilterList,
     setRenderFilterList,
-    setFilterList,
+    setFilteredList,
   } = useContext(DiaryContext);
 
   const editButtonClickHandler = (id) => {
@@ -33,7 +33,9 @@ const List = () => {
   };
   const sortButtonClickHandler = () => {
     const newData = [...userData].reverse();
+    const newFilterData = [...filteredList].reverse()
     setUserData(newData);
+    setFilteredList(newFilterData)
   };
 
   const filterButtonHandler = () => {
@@ -48,11 +50,11 @@ const List = () => {
         <button onClick={filterButtonHandler}>filter</button>
       </div>
       <div key={Math.random().toString()} className="list-cont-main">
-        {dataList &&
+        {dataList.length===0 ? (<p className="no-data">No record Found</p>) : 
           dataList.map((item) => {
             //   const { id } = item;
             const day = item.day;
-            const month = item.month.toLocaleString("en-us", {
+            const month = item.fullDate.toLocaleString("en-us", {
               month: "long",
             });
             const year = item.year;

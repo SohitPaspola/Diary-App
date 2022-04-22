@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { DiaryContext } from "../HOOK/MyContext";
 import Modal from "../UI/Modal";
+import './Filter.css';
 
 const Filter = () => {
   const {
@@ -18,23 +19,26 @@ const Filter = () => {
     year: "",
   };
 
+  // setRenderFilterList(false)
+
   const [inputValues, setInputValues] = useState(initialValues);
   useEffect(() => {
     setFilterInputData({
-      week: inputValues.week.slice(5),
+      week: inputValues.week.slice(6),
       month: inputValues.month.slice(6),
       year: inputValues.year,
     });
   }, [inputValues]);
-
+  
   const inputValuesHandler = (event) => {
     const { name, value } = event.target;
     setInputValues({
       ...inputValues,
       [name]: value,
     });
-    console.log(inputValues);
+    // console.log(inputValues);
   };
+  console.log(filterInputData.week);
   const filterByWeekHandler = () => {
     const filteredValue = userData.filter(
       (item) => +item.week === +filterInputData.week
@@ -57,8 +61,8 @@ const Filter = () => {
       (item) => +item.year === +filterInputData.year
     );
     // console.log(inputValues);
-    console.log(filteredValue);
-    console.log(userData);
+    // console.log(filteredValue);
+    // console.log(userData);
     setFilteredList(filteredValue);
     setShowFilterModal(false);
     setRenderFilterList(true);
@@ -67,9 +71,9 @@ const Filter = () => {
 
   return (
     <Modal>
-      <div>
-        <div>
-          <label>week</label>
+      <div className="filter-cont">
+        <div className="filter-div">
+          <label>week : </label>
           <input
             name="week"
             type="week"
@@ -84,7 +88,7 @@ const Filter = () => {
           </button>
         </div>
         <div>
-          <label>month</label>
+          <label>month : </label>
           <input
             name="month"
             type="month"
@@ -99,7 +103,7 @@ const Filter = () => {
           </button>
         </div>
         <div>
-          <label>year</label>
+          <label>year : </label>
           <input
             type="number"
             step="1"

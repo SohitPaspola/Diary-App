@@ -33,3 +33,9 @@
     color: #566d6d;
 }
 
+.no-data{
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  font-weight: 700;
+}

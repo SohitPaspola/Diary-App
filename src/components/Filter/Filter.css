@@ -1,0 +1,39 @@
+.filter-cont{
+    /* border: 1px solid red; */
+}
+
+.filter-cont div{
+    /* border: 1px solid red; */
+    padding: .4rem;
+}
+
+.filter-cont div label{
+    /* border: 1px solid blue; */
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 5rem;
+    display: inline-block;
+    color: #17183b;
+    text-transform: capitalize;
+
+}
+
+.filter-cont input{
+    width: 12rem;
+    border-color: #3aa39f;
+    height: 2rem;
+    display: inline-block;
+    /* border-radius: 10px; */
+}
+
+.filter-cont button{
+    display: inline-block;
+    width: 11rem;
+    margin-left: 2rem;
+}
+
+.filter-cont button:hover,
+.filter-cont button:active{
+    background-color: #3aa39f;
+    color: white;
+}

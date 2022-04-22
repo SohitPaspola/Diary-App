@@ -9,7 +9,7 @@ import Input from './components/Input/Input';
 function App() {
 
   const { showModal, showFilterModal,filterInputData } = useContext(DiaryContext);
-  console.log(filterInputData);
+  // console.log(filterInputData);
   
   return (
     <div className="App">

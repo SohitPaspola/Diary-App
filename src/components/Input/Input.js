@@ -14,6 +14,8 @@ const Input = () => {
     setIsEditing,
     editId,
     setEditId,
+    setRenderFilterList,
+    setFilteredList,
   } = useContext(DiaryContext);
   //   console.log(input);
   //   let today = new Date();
@@ -25,7 +27,9 @@ const Input = () => {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    setFilteredList([])
     if (isEditing) {
+      setRenderFilterList(false)
       const newData = userData.map((item) => {
         if (item.id === editId) {
           return { ...item, text: input };
@@ -46,7 +50,7 @@ const Input = () => {
         week: +result - 1,
       });
     }
-    console.log(userData);
+    // console.log(userData);
     setInput("");
     setIsEditing(false);
     setShowModal(false);
@@ -59,6 +63,7 @@ const Input = () => {
         <div className="control">
           <label htmlFor="text">Text</label>
           <textarea
+            placeholder="enter the text to add a note"
             id="text"
             rows="5"
             onChange={(e) => setInput(e.target.value)}
